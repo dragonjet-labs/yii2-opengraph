@@ -4,15 +4,21 @@
 	"keywords": ["yii2", "extension", "open-graph", "facebook"],
     "homepage": "https://github.com/dragonjet/yii2-opengraph",
     "type": "yii2-extension",
-    "require": {
-        "yiisoft/yii2": "*"
-    },
-    "license": "MIT",
-    "authors": [
+	"license": "MIT",
+	"authors": [
         {
             "name": "dragonjet",
-            "email": "jetriconew@gmail.com"
+            "email": "jetriconew@gmail.com",
+			"homepage": "http://jetri.co"
         }
     ],
-    "minimum-stability": "stable"
+	"minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "@dev"
+    },
+	"autoload": {
+        "psr-4": {
+            "dragonjet\\opengraph\\": ""
+        }
+    }
 }
