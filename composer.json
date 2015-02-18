@@ -1,0 +1,18 @@
+{
+    "name": "dragonjet/yii2-opengraph",
+    "description": "Open Graph implementation for Yii 2",
+	"keywords": ["yii2", "extension", "open-graph", "facebook"],
+    "homepage": "https://github.com/dragonjet/yii2-opengraph",
+    "type": "yii2-extension",
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dragonjet",
+            "email": "jetriconew@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
