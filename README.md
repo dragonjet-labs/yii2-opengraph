@@ -19,8 +19,6 @@ Yii::$app->opengraph->description = 'B';
 Yii::$app->opengraph->image = 'C';
 return $this->render('index');
 ```
-Remember to keep opengraph title 
-
 
 ### Available Properties
 #### Title
