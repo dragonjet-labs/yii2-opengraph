@@ -19,7 +19,7 @@ class OpenGraph {
 		$this->url = Yii::$app->request->absoluteUrl;
 		$this->description = null;
 		$this->type = 'article';
-		$this->locale = Yii::$app->language;
+		$this->locale = str_replace('-','_',Yii::$app->language);
 		$this->image = null;
 		
 		// Listed to Begin Page View event to start adding meta
