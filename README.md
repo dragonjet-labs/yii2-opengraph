@@ -1,7 +1,7 @@
-## Open Graph for Yii 2.x
+# Open Graph for Yii 2.x
 Open Graph implementation for Yii 2 which adds valid meta tags to your HTML output.
 
-### Configuration
+## Configuration
 ```
 'components' => [
 	'opengraph' => [
@@ -11,16 +11,53 @@ Open Graph implementation for Yii 2 which adds valid meta tags to your HTML outp
 ],
 ```
 
-### Usage
-On controllers, before rendering the view:
+## Usage
+The following codes must be used on controller actions before rendering the view.
+
+### Usage via Object
 ```
-Yii::$app->opengraph->title = 'A';
-Yii::$app->opengraph->description = 'B';
-Yii::$app->opengraph->image = 'C';
-return $this->render('index');
+Yii::$app->opengraph->title = 'My_Article';
+Yii::$app->opengraph->description = 'My_Article_Description';
+Yii::$app->opengraph->image = 'http://image.for.my/article';
+return $this->render('My_View_Name');
 ```
 
-### Available Properties
+### Usage via Array
+```
+Yii::$app->opengraph->set([
+	'title' => 'My_Article',
+	'description' => 'My_Article_Description',
+	'image' => 'http://image.for.my/article',
+]);
+return $this->render('My_View_Name');
+```
+
+### Twitter Cards
+```
+Yii::$app->opengraph->title = 'My_Article';
+Yii::$app->opengraph->description = 'My_Article_Description';
+Yii::$app->opengraph->image = 'http://image.for.my/article';
+Yii::$app->opengraph->twitter->card = 'summary';
+Yii::$app->opengraph->twitter->site = 'My_Site_Twitter_Username';
+Yii::$app->opengraph->twitter->creator = 'Author_Username';
+return $this->render('My_View_Name');
+```
+or
+```
+Yii::$app->opengraph->set([
+	'title' => 'My_Article',
+	'description' => 'My_Article_Description',
+	'image' => 'http://image.for.my/article',
+	'twitter' => [
+		'card' => 'summary',
+		'site' => 'My_Site_Twitter_Username',
+		'creator' => 'Author_Username',
+	],
+]);
+return $this->render('My_View_Name');
+```
+
+## Available Properties
 #### Title
 `Yii::$app->opengraph->title`
 
