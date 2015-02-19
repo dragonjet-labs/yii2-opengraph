@@ -22,6 +22,9 @@ class OpenGraph {
 		$this->locale = str_replace('-','_',Yii::$app->language);
 		$this->image = null;
 		
+		// Twitter Card
+		$this->twitter = new TwitterCard;
+		
 		// Listed to Begin Page View event to start adding meta
 		Yii::$app->view->on(View::EVENT_BEGIN_PAGE, function(){
 			// Register required and easily determined open graph data
@@ -42,6 +45,8 @@ class OpenGraph {
 			if($this->image!==null){
 				Yii::$app->controller->view->registerMetaTag(['property'=>'og:image', 'content'=>$this->image], 'og:image');
 			}
+			
+			$this->twitter->registerTags();
 		});
 	}
 	
@@ -49,7 +54,9 @@ class OpenGraph {
 	public function set($metas=[]){
 		// Massive assignment by array
 		foreach($metas as $property=>$content){
-			if(property_exists($this, $property)){
+			if($property=='twitter'){
+				$this->twitter->set($content);
+			}else if(property_exists($this, $property)){
 				$this->$property = $content;
 			}
 		}
